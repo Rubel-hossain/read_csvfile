@@ -1,12 +1,8 @@
-import { useState, useEffect } from "react";
-import MultiStep from "react-multistep";
-
+import { useState} from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UsersRecordForm from "./components/users_record_form";
-import UsersGeneralForm from "./components/users_general_form";
 import UsersRecordList from "./components/users_record_list";
-import StepTwo from "./components/forms/stepTwo";
 
 function App(props) {
   // Start Handle User Record Form
@@ -88,9 +84,9 @@ function App(props) {
     let value = e.target.value;
 
     setGetNumbers((prevState) => ({
-      ...prevState,
-      [e.target.name]: value,
+      [e.target.name]: value
     }));
+
   };
 
   const storeInLocal = () => {
@@ -126,17 +122,6 @@ function App(props) {
 
   const local_users_data = JSON.parse(localStorage.getItem("users_all_data"));
 
-  const StepOne = () => {
-    return (
-      <>
-        <h2>Step One</h2>
-      </>
-    );
-  };
-  const steps = [
-    { name: "StepOne", component: <StepOne /> },
-    { name: "StepTwo", component: <StepTwo /> },
-  ];
   return (
     <div className="App">
       <UsersRecordForm

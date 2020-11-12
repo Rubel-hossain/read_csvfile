@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { CSVReader } from "react-papaparse";
 import MultiStep from "react-multistep";
 const UsersRecordForm = ({
@@ -9,6 +10,8 @@ const UsersRecordForm = ({
   getNumbers,
 }) => {
   const StepOne = () => {
+    const inputRef = useRef();
+
     return (
       <div className="step-one">
         <div className="form-group">
@@ -25,7 +28,7 @@ const UsersRecordForm = ({
                     className="form-control"
                     id="full_name"
                     placeholder="Full Name"
-                    onChange={changeHandler}
+                    onChange={(e) => changeHandler(e)}
                     value={getNumbers.full_name}
                     required
                   />
@@ -48,7 +51,7 @@ const UsersRecordForm = ({
                     className="form-control"
                     id="user_email"
                     placeholder="Email"
-                    onChange={changeHandler}
+                    onChange={(e) => changeHandler(e)}
                     value={getNumbers.user_email}
                     required
                   />
@@ -69,8 +72,9 @@ const UsersRecordForm = ({
                     placeholder="Description"
                     cols="30"
                     rows="6"
-                    onChange={changeHandler}
+                    onChange={(e) => changeHandler()}
                     value={getNumbers.user_description}
+                    ref={inputRef}
                     required
                   ></textarea>
                 </div>
@@ -89,17 +93,19 @@ const UsersRecordForm = ({
           <div className="row">
             <div className="col">
               <div className="form-group row">
-                <label htmlFor="full_name" className="col-sm-2 col-form-label">
+                <label
+                  htmlFor="full_name_2"
+                  className="col-sm-2 col-form-label"
+                >
                   Full Name
                 </label>
                 <div className="col-sm-10">
                   <input
                     type="text"
-                    name="full_name"
+                    name="full_name_2"
                     className="form-control"
-                    id="full_name"
+                    id="full_name_2"
                     placeholder="Full Name"
-                    value={getNumbers.full_name}
                     required
                     readOnly
                   />
@@ -112,17 +118,19 @@ const UsersRecordForm = ({
           <div className="row">
             <div className="col">
               <div className="form-group row">
-                <label htmlFor="user_email" className="col-sm-2 col-form-label">
+                <label
+                  htmlFor="user_email_2"
+                  className="col-sm-2 col-form-label"
+                >
                   Email
                 </label>
                 <div className="col-sm-10">
                   <input
                     type="email"
-                    name="user_email"
+                    name="user_email_2"
                     className="form-control"
-                    id="user_email"
+                    id="user_email_2"
                     placeholder="Email"
-                    value={getNumbers.user_email}
                     required
                     readOnly
                   />
@@ -137,9 +145,9 @@ const UsersRecordForm = ({
               <div className="form-group row">
                 <div className="col-sm-12 mx-auto">
                   <textarea
-                    name="user_description"
+                    name="user_description_2"
                     className="form-control"
-                    id="user_description"
+                    id="user_description_2"
                     placeholder="Description"
                     cols="30"
                     rows="6"
@@ -178,7 +186,7 @@ const UsersRecordForm = ({
                     name="min_x"
                     className="form-control"
                     id="min_x"
-                    onChange={changeHandler}
+                    onChange={(e) => changeHandler(e)}
                     value={getNumbers.min_x}
                     required
                   />
@@ -196,7 +204,7 @@ const UsersRecordForm = ({
                     name="max_x"
                     className="form-control"
                     id="max_x"
-                    onChange={changeHandler}
+                    onChange={(e) => changeHandler(e)}
                     value={getNumbers.max_x}
                     required
                   />
@@ -218,7 +226,7 @@ const UsersRecordForm = ({
                     name="min_y"
                     className="form-control"
                     id="min_y"
-                    onChange={changeHandler}
+                    onChange={(e) => changeHandler(e)}
                     value={getNumbers.min_y}
                     required
                   />
@@ -236,7 +244,7 @@ const UsersRecordForm = ({
                     name="max_y"
                     className="form-control"
                     id="max_y"
-                    onChange={changeHandler}
+                    onChange={(e) => changeHandler(e)}
                     value={getNumbers.max_y}
                     required
                   />
@@ -258,7 +266,7 @@ const UsersRecordForm = ({
                     name="min_z"
                     className="form-control"
                     id="min_z"
-                    onChange={changeHandler}
+                    onChange={(e) => changeHandler(e)}
                     value={getNumbers.min_z}
                     required
                   />
@@ -276,7 +284,7 @@ const UsersRecordForm = ({
                     name="max_z"
                     className="form-control"
                     id="max_z"
-                    onChange={changeHandler}
+                    onChange={(e) => changeHandler(e)}
                     value={getNumbers.max_z}
                     required
                   />
